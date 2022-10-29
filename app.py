@@ -1,6 +1,6 @@
 from cgitb import text
 from tkinter import *
-import requests
+from req import *
 
 frame = Tk()
 frame.title("Synapse")
@@ -30,16 +30,16 @@ fr3.pack(pady=14)
 responseframe = Frame(frame, borderwidth =7, bg = "white", relief = SUNKEN)
 responseframe.pack(side = RIGHT)
 
+#function for output of status_code and text of get request
 def Output():
     inp = inputtxt.get(1.0, "end-1c")
     url = inp
-    r = requests.get(url)
-    t = r.status_code
-    u = r.text
-    lbl.config(text = u)
+    a,b = get(url)
+    lbl.config(text = b)
+    # print(a)
 
-def show():
-    label.config( text = clicked.get() )
+# def show():
+#     lbl.config( text = clicked.get() )
 
 options = [
     "GET",
