@@ -5,30 +5,31 @@ from req import *
 frame = Tk()
 frame.title("Synapse")
 
-#set window size
-frame.geometry("1080x720+200+200")
+#set window size (widthxheight)
+frame.geometry("1480x920")
 
 #set window colour
-frame.config(bg='white')
+frame.config(bg='#B0B0E0')
 
 # Function for getting Input
 # from textbox and printing it 
 # at label widget
 
-leftfr = Frame(frame, borderwidth = 5, bg = "white", relief = SUNKEN)
-leftfr.pack(side = LEFT, fill = "y", pady = 50)
-
 fr1 = Frame(frame, borderwidth = 5, bg = "grey", relief = SUNKEN, pady = 20)
-fr1.pack(side = TOP, fill = "x")
+fr1.pack(fill = "x")
+fr2 = Frame(fr1, borderwidth = 5, bg = "grey", pady = 20)
+fr2.pack(anchor = "center")
+responseframe = Frame(frame, bg = "#B0B0E0")
+responseframe.pack()
+buttonsframe = Frame(responseframe, padx = 30, pady = 30, bg = "lightcyan")
+buttonsframe.pack(fill = "x")
 
-fr2 = Frame(fr1, borderwidth = 4, bg = "black", relief = SUNKEN)
-fr2.pack()
+# menu bar
+menu1 = Menu(frame)
+menu1.add_command(label = " File ")
+menu1.add_command(label = " Save")
+frame.config(menu = menu1)
 
-fr3 = Frame(fr1, borderwidth = 4, bg = "black", relief = SUNKEN)
-fr3.pack(pady=14)
-
-responseframe = Frame(frame, borderwidth =7, bg = "white", relief = SUNKEN)
-responseframe.pack(side = RIGHT)
 
 #function for output of status_code and text of get request
 def Output():
@@ -36,10 +37,6 @@ def Output():
     url = inp
     a,b = get(url)
     lbl.config(text = b)
-    # print(a)
-
-# def show():
-#     lbl.config( text = clicked.get() )
 
 options = [
     "GET",
@@ -51,27 +48,29 @@ options = [
 
 # datatype of menu text
 clicked = StringVar()
-  
 # initial menu text
 clicked.set( "GET" )
-  
 # Create Dropdown menu
-drop = OptionMenu( fr1 , clicked , *options )
-drop.pack()
-  
+drop = OptionMenu( fr2 , clicked , *options)
+drop.grid(row = 0, column = 0, )
 # InputBox(TextBox) Creation
-inputtxt = Text(fr2, height = 3, width = 40) 
-inputtxt.pack()
-  
+inputtxt = Text(fr2, height = 1, width = 36, pady = 20, padx = 20) 
+inputtxt.grid(row = 0, column = 1, padx = 45)
 # Button Creation
-sendButton = Button(fr3, text = "Send", command = Output, padx=12, pady=10, bg="#DCDC14")
-sendButton.pack()
-  
-# Label Creation
-lbl = Label(responseframe, text = "Click Send to get a response", height=50, width=93, padx = 50, pady=50, bg="#B0B0E0", fg = "white", font = "Helvetica 13")
-lbl.pack(side = RIGHT)
+sendButton = Button(fr2, text = "Send", command = Output, padx=12, pady=10, bg="#DCDC14")
+sendButton.grid(row = 0, column = 2)
 
-words = Label(leftfr, text = " here it is", height = 15, width = 30)
-words.pack()
+button1 = Button(buttonsframe, text = "Pretty", padx = 18, pady = 15, bg = "lightblue")
+button1.grid(row = 0, column = 1, padx = 20)
+button2 = Button(buttonsframe, text = "Raw", padx = 18, pady = 15, bg = "lightblue")
+button2.grid(row = 0, column = 2, padx = 20)
+button3 = Button(buttonsframe, text = "Preview", padx = 18, pady = 15, bg = "lightblue")
+button3.grid(row = 0, column = 3, padx = 20)
+button4 = Button(buttonsframe, text = "Visualize", padx = 18, pady = 15, bg = "lightblue")
+button4.grid(row = 0, column = 4, padx = 20)
+
+# Label Creation
+lbl = Label(responseframe, text = "Click Send to get a response", height=1150, width=1300, padx = 50, pady=50, bg = "lightcyan", fg = "black", font = "Helvetica 13")
+lbl.pack(side = RIGHT)
 
 frame.mainloop()
