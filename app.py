@@ -19,6 +19,8 @@ responseframe = Frame(frame, bg = "#B0B0E0")
 responseframe.pack()
 buttonsframe = Frame(responseframe, padx = 30, pady = 30, bg = "lightcyan")
 buttonsframe.pack(fill = "x")
+bframe = Frame(fr1, padx = 30, pady = 30, bg = "grey")
+bframe.pack(anchor  ="center")
 
 # menu bar
 menu1 = Menu(frame)
@@ -54,6 +56,22 @@ options = [
     "DELETE",
 ]
 
+def appear1():
+    # InputBox for params (TextBox) Creation
+    inputtxt1 = Text(fr2, height = 3, width = 90, pady = 20, padx = 20, bg = "red") 
+    inputtxt1.grid(row = 2, column = 1, padx = 45, pady = 30)
+def appear2():
+    # InputBox for params (TextBox) Creation
+    inputtxt2 = Text(fr2, height = 3, width = 90, pady = 20, padx = 20, bg = "pink") 
+    inputtxt2.grid(row = 2, column = 1, padx = 45, pady = 30)
+def appear3():
+    # InputBox for params (TextBox) Creation
+    inputtxt3 = Text(fr2, height = 3, width = 90, pady = 20, padx = 20, bg = "blue") 
+    inputtxt3.grid(row = 2, column = 1, padx = 45, pady = 30)
+def appear4():
+    # InputBox for params (TextBox) Creation
+    inputtxt4 = Text(fr2, height = 3, width = 90, pady = 20, padx = 20, bg = "green") 
+    inputtxt4.grid(row = 2, column = 1, padx = 45, pady = 30)
 # datatype of menu text
 clicked = StringVar()
 # initial menu text
@@ -64,11 +82,23 @@ drop.grid(row = 0, column = 0, )
 # InputBox(TextBox) Creation
 inputtxt = Text(fr2, height = 1, width = 76, pady = 20, padx = 20) 
 inputtxt.grid(row = 0, column = 1, padx = 45)
-# InputBox for params (TextBox) Creation
-inputtxt2 = Text(fr2, height = 4, width = 106, pady = 20, padx = 20) 
-inputtxt2.grid(row = 1, column = 1, padx = 45)
+
+# buttons in frame2
+b1 = Button(bframe, text = "Params", padx = 18, pady = 15, bg = "lightblue", command= appear1)
+b1.grid(row = 0, column = 2, padx = 20)
+b2 = Button(bframe, text = "Authorization", padx = 18, pady = 15, bg = "lightblue", command= appear2)
+b2.grid(row = 0, column = 3, padx = 20)
+b3 = Button(bframe, text = "Headers", padx = 18, pady = 15, bg = "lightblue", command= appear3)
+b3.grid(row = 0, column = 4, padx = 20)
+b4 = Button(bframe, text = "JSON", padx = 18, pady = 15, bg = "lightblue", command= appear4)
+b4.grid(row = 0, column = 5, padx = 20)
+
+
+# # InputBox for params (TextBox) Creation
+# inputtxt2 = Text(fr2, height = 3, width = 90, pady = 20, padx = 20) 
+# inputtxt2.grid(row = 1, column = 1, padx = 45, pady = 30)
 # Button Creation
-sendButton = Button(fr2, text = "Send", command = Outget, padx=12, pady=10, bg="#DCDC14")
+sendButton = Button(fr2, text = "Send", command = Outget, padx=18, pady=15, bg="#DCDC14")
 sendButton.grid(row = 0, column = 2)
 
 button1 = Button(buttonsframe, text = "Raw", padx = 18, pady = 15, bg = "lightblue")
