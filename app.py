@@ -36,14 +36,14 @@ def got(self):
 #status_code and text of get request
 def Outget():
     inp = inputtxt.get(1.0, "end-1c")
-    a,b = get(inp)
+    b = scget(inp)
     lbl.config(text = b)
 
 # post
 def Outpost():
     link = inputtxt.get(1.0, "end-1c")
     payload = inputtxt2.get(1.0, "end-1c")
-    b = post(link)
+    b = spost(link)
     lbl.config(text = b)
 
 options = [
