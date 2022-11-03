@@ -1,6 +1,7 @@
 from cgitb import text
 from tkinter import *
 from req import *
+from tkinter import ttk
 
 frame = Tk()
 frame.title("Synapse")
@@ -15,7 +16,7 @@ fr1 = Frame(frame, borderwidth = 5, bg = "grey", relief = SUNKEN, pady = 20)
 fr1.pack(fill = "x")
 fr2 = Frame(fr1, borderwidth = 5, bg = "grey", pady = 20)
 fr2.pack(anchor = "center")
-responseframe = Frame(frame, bg = "#B0B0E0")
+responseframe = Frame(frame, bg = "lightcyan")
 responseframe.pack()
 buttonsframe = Frame(responseframe, padx = 30, pady = 30, bg = "lightcyan")
 buttonsframe.pack(fill = "x")
@@ -83,16 +84,17 @@ drop.grid(row = 0, column = 0, )
 inputtxt = Text(fr2, height = 1, width = 76, pady = 20, padx = 20) 
 inputtxt.grid(row = 0, column = 1, padx = 45)
 
-# buttons in frame2
-b1 = Button(bframe, text = "Params", padx = 18, pady = 15, bg = "lightblue", command= appear1)
-b1.grid(row = 0, column = 2, padx = 20)
-b2 = Button(bframe, text = "Authorization", padx = 18, pady = 15, bg = "lightblue", command= appear2)
-b2.grid(row = 0, column = 3, padx = 20)
-b3 = Button(bframe, text = "Headers", padx = 18, pady = 15, bg = "lightblue", command= appear3)
-b3.grid(row = 0, column = 4, padx = 20)
-b4 = Button(bframe, text = "JSON", padx = 18, pady = 15, bg = "lightblue", command= appear4)
-b4.grid(row = 0, column = 5, padx = 20)
-
+# tabs widget
+tabControl = ttk.Notebook(fr1, height = 100, width = 50)
+tab1 = Frame(tabControl)
+tab2 = Frame(tabControl)
+tab3 = Frame(tabControl)
+tab4 = Frame(tabControl)
+tabControl.add(tab1, text = 'Params')
+tabControl.add(tab2, text = 'Authorization')
+tabControl.add(tab3, text = 'Headers')
+tabControl.add(tab4, text = 'JSON')
+tabControl.pack(fill = "both", padx = 400)
 
 # # InputBox for params (TextBox) Creation
 # inputtxt2 = Text(fr2, height = 3, width = 90, pady = 20, padx = 20) 
@@ -101,12 +103,15 @@ b4.grid(row = 0, column = 5, padx = 20)
 sendButton = Button(fr2, text = "Send", command = Outget, padx=18, pady=15, bg="#DCDC14")
 sendButton.grid(row = 0, column = 2)
 
-button1 = Button(buttonsframe, text = "Raw", padx = 18, pady = 15, bg = "lightblue")
-button1.grid(row = 0, column = 2, padx = 20)
-button2 = Button(buttonsframe, text = "Preview", padx = 18, pady = 15, bg = "lightblue")
-button2.grid(row = 0, column = 3, padx = 20)
-button3 = Button(buttonsframe, text = "Headers", padx = 18, pady = 15, bg = "lightblue")
-button3.grid(row = 0, column = 4, padx = 20)
+# tabs widget
+tabControl = ttk.Notebook(responseframe, height = 700, width = 50)
+tab_1 = Frame(tabControl)
+tab_2 = Frame(tabControl)
+tab_3 = Frame(tabControl)
+tabControl.add(tab_1, text = 'Raw')
+tabControl.add(tab_2, text = 'Preview')
+tabControl.add(tab_3, text = 'Headers')
+tabControl.pack(fill = "both", padx = 300, pady = 50)
 
 # Label Creation
 lbl = Label(responseframe, text = "Click Send to get a response", height=1150, width=1300, padx = 50, pady=50, bg = "lightcyan", fg = "black", font = "Helvetica 13")
