@@ -29,7 +29,6 @@ menu1.add_command(label = " File ")
 menu1.add_command(label = " Save")
 frame.config(menu = menu1)
 
-
 #function 
 #to get which requested setted at request
 def got(self):
@@ -39,15 +38,16 @@ def got(self):
 #status_code and text of get request
 def Outget():
     inp = inputtxt.get(1.0, "end-1c")
-    b = scget(inp)
-    lbl.config(text = b)
+    b = txtget(inp)
+    c = hedget(inp)
+    lbl1.config(text = b)
+    lbl3.config(text = c)
 
 # post
-def Outpost():
-    link = inputtxt.get(1.0, "end-1c")
-    payload = inputtxt2.get(1.0, "end-1c")
-    b = spost(link)
-    lbl.config(text = b)
+# def head():
+#     inp = inputtxt.get(1.0, "end-1c")
+#     b = hedget(inp)
+#     lbl1.config(text = b)
 
 options = [
     "GET",
@@ -104,17 +104,21 @@ sendButton = Button(fr2, text = "Send", command = Outget, padx=18, pady=15, bg="
 sendButton.grid(row = 0, column = 2)
 
 # tabs widget
-tabControl = ttk.Notebook(responseframe, height = 700, width = 50)
+tabControl = ttk.Notebook(responseframe, height = 1700, width = 1750)
 tab_1 = Frame(tabControl)
 tab_2 = Frame(tabControl)
 tab_3 = Frame(tabControl)
 tabControl.add(tab_1, text = 'Raw')
 tabControl.add(tab_2, text = 'Preview')
 tabControl.add(tab_3, text = 'Headers')
-tabControl.pack(fill = "both", padx = 300, pady = 50)
+tabControl.pack(fill = "both")
 
 # Label Creation
-lbl = Label(responseframe, text = "Click Send to get a response", height=1150, width=1300, padx = 50, pady=50, bg = "lightcyan", fg = "black", font = "Helvetica 13")
-lbl.pack(side = RIGHT)
+lbl1 = Label(tab_1, text = "Click Send to get a response", height=1150, width=100, padx = 50, pady=50, bg = "pink", fg = "black", font = "Helvetica 13", justify = "left", wraplength = 1500)
+lbl1.pack()
+lbl2 = Label(tab_2, text = "Click Send to get a response", height=1150, width=1300, padx = 50, pady=50, bg = "pink", fg = "black", font = "Helvetica 13")
+lbl2.pack()
+lbl3 = Label(tab_3, text = "Click Send to get a response", height=1150, width=1300, padx = 50, pady=50, bg = "pink", fg = "black", font = "Helvetica 13")
+lbl3.pack()
 
 frame.mainloop()
