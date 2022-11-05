@@ -1,7 +1,7 @@
 from cgitb import text
 from tkinter import *
-from req import *
 from tkinter import ttk
+from req import *
 
 frame = Tk()
 frame.title("Synapse")
@@ -31,23 +31,25 @@ frame.config(menu = menu1)
 
 #function 
 #to get which requested setted at request
-def got(self):
-    t = clicked.get()
-    print(t)
-    
-#status_code and text of get request
-def Outget():
-    inp = inputtxt.get(1.0, "end-1c")
-    b = txtget(inp)
-    c = hedget(inp)
-    lbl1.config(text = b)
-    lbl3.config(text = c)
 
-# post
-# def head():
-#     inp = inputtxt.get(1.0, "end-1c")
-#     b = hedget(inp)
-#     lbl1.config(text = b)
+def got():
+    slktd = clicked.get()
+    law = slktd.lower()
+    print(law)
+    return(law)
+
+def requested():
+    url = inputtxt.get(1.0, "end-1c")
+    param = tab1.get(1.0, "end-1c")
+    auth = tab2.get(1.0, "end-1c")
+    head = tab3.get(1.0, "end-1c")
+    json = tab4.get(1.0, "end-1c")  
+    t = got()
+    print(f"t = {t}")
+    statcode, txt, hed = request(t , url, param, auth, head, json)
+    print(statcode, txt, hed)
+    lbl1.config(text = txt)
+    lbl3.config(text = hed)
 
 options = [
     "GET",
@@ -80,34 +82,34 @@ clicked.set( "GET" )
 # Create Dropdown menu
 drop = OptionMenu( fr2 , clicked , *options, command=got)
 drop.grid(row = 0, column = 0, )
-# InputBox(TextBox) Creation
+# url box
 inputtxt = Text(fr2, height = 1, width = 76, pady = 20, padx = 20) 
 inputtxt.grid(row = 0, column = 1, padx = 45)
+# saving url
+# url = inputtxt.get(1.0, "end-1c")
+
 
 # tabs widget
 tabControl = ttk.Notebook(fr1, height = 100, width = 50)
-tab1 = Frame(tabControl)
-tab2 = Frame(tabControl)
-tab3 = Frame(tabControl)
-tab4 = Frame(tabControl)
+tab1 = Text(tabControl)
+tab2 = Text(tabControl)
+tab3 = Text(tabControl)
+tab4 = Text(tabControl)
 tabControl.add(tab1, text = 'Params')
 tabControl.add(tab2, text = 'Authorization')
 tabControl.add(tab3, text = 'Headers')
 tabControl.add(tab4, text = 'JSON')
 tabControl.pack(fill = "both", padx = 400)
 
-# # InputBox for params (TextBox) Creation
-# inputtxt2 = Text(fr2, height = 3, width = 90, pady = 20, padx = 20) 
-# inputtxt2.grid(row = 1, column = 1, padx = 45, pady = 30)
 # Button Creation
-sendButton = Button(fr2, text = "Send", command = Outget, padx=18, pady=15, bg="#DCDC14")
+sendButton = Button(fr2, text = "Send", command = requested, padx=18, pady=15, bg="#DCDC14")
 sendButton.grid(row = 0, column = 2)
 
 # tabs widget
-tabControl = ttk.Notebook(responseframe, height = 1700, width = 1750)
-tab_1 = Frame(tabControl)
-tab_2 = Frame(tabControl)
-tab_3 = Frame(tabControl)
+tabControl = ttk.Notebook(responseframe, height = 700, width = 50)
+tab_1 = Label(tabControl, text="response")
+tab_2 = Label(tabControl, text="hjgjj")
+tab_3 = Label(tabControl, text="bjghjhjh")
 tabControl.add(tab_1, text = 'Raw')
 tabControl.add(tab_2, text = 'Preview')
 tabControl.add(tab_3, text = 'Headers')
