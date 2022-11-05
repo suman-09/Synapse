@@ -4,7 +4,6 @@ import requests
 def request(t, url, param, auth, head, json):
     
     if t=="get":
-        print(auth)
         r = requests.get(url, params=param, auth=auth, headers=head, json=json)
         statcode = r.status_code
         txt = r.text

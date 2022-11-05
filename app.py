@@ -35,7 +35,6 @@ frame.config(menu = menu1)
 def got():
     slktd = clicked.get()
     law = slktd.lower()
-    print(law)
     return(law)
 
 def requested():
@@ -45,9 +44,7 @@ def requested():
     head = tab3.get(1.0, "end-1c")
     json = tab4.get(1.0, "end-1c")  
     t = got()
-    print(f"t = {t}")
     statcode, txt, hed = request(t , url, param, auth, head, json)
-    print(statcode, txt, hed)
     lbl1.config(text = txt)
     lbl3.config(text = hed)
 
