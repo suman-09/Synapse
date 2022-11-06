@@ -1,4 +1,3 @@
-from lib2to3.pgen2 import token
 import requests
 
 def request(t, url, param, auth, head, json):
