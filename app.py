@@ -1,7 +1,10 @@
-from cgitb import text
 from tkinter import *
 from tkinter import ttk
+from tkhtmlview import HTMLLabel
 from req import *
+import os
+from tkinter.simpledialog import askstring
+from bs4 import BeautifulSoup as bs
 
 frame = Tk()
 frame.title("Synapse")
@@ -23,12 +26,6 @@ buttonsframe.pack(fill = "x")
 bframe = Frame(fr1, padx = 30, pady = 30, bg = "white",highlightbackground= "#1338be", highlightthickness=3)
 bframe.pack(anchor  ="center")
 
-# menu bar
-# menu1 = Menu(frame)
-# menu1.add_command(label = " File ")
-# menu1.add_command(label = " Save")
-# frame.config(menu = menu1)
-
 #function 
 #to get which requested setted at request
 
@@ -45,9 +42,20 @@ def requested():
     json = tab4.get(1.0, "end-1c")  
     t = got()
     statcode, txt, hed = request(t , url, param, auth, head, json)
-    lbl1.config(text = txt)
-    lbl3.config(text = hed)
+    soup = bs(txt, 'html.parser')
+    prettyHTML = soup.prettify()
+    lbl1.config(text = prettyHTML)
+    lbl2.set_html(txt)
+    lbl3.config(text = txt)
+    return txt
 
+def download():
+    save = requested()
+    filename = askstring('Save File', 'Enter filename') + '.html'
+    myfile = open(filename, 'w')
+    myfile.write(save)
+    myfile.close()
+    
 options = [
     "GET",
     "POST",
@@ -56,22 +64,7 @@ options = [
     "DELETE",
 ]
 
-def appear1():
-    # InputBox for params (TextBox) Creation
-    inputtxt1 = Text(fr2, height = 3, width = 90, pady = 20, padx = 20, bg = "#1338be") 
-    inputtxt1.grid(row = 2, column = 1, padx = 45, pady = 30)
-def appear2():
-    # InputBox for params (TextBox) Creation
-    inputtxt2 = Text(fr2, height = 3, width = 90, pady = 20, padx = 20, bg = "#1338be") 
-    inputtxt2.grid(row = 2, column = 1, padx = 45, pady = 30)
-def appear3():
-    # InputBox for params (TextBox) Creation
-    inputtxt3 = Text(fr2, height = 3, width = 90, pady = 20, padx = 20, bg = "#1338be") 
-    inputtxt3.grid(row = 2, column = 1, padx = 45, pady = 30)
-def appear4():
-    # InputBox for params (TextBox) Creation
-    inputtxt4 = Text(fr2, height = 3, width = 90, pady = 20, padx = 20, bg = "#1338be") 
-    inputtxt4.grid(row = 2, column = 1, padx = 45, pady = 30)
+
 # datatype of menu text
 clicked = StringVar()
 # initial menu text
@@ -84,8 +77,6 @@ drop.config( bg="#1338be", fg="#fff")
 # url box
 inputtxt = Text(fr2, height = 1, width = 76, pady = 20, padx = 20 ) 
 inputtxt.grid(row = 0, column = 1, padx = 45)
-# saving url
-# url = inputtxt.get(1.0, "end-1c")
 
 
 # tabs widget
@@ -105,7 +96,7 @@ tabControl.pack(fill = "both", padx = 400)
 # Button Creation
 sendButton = Button(fr2, text = "Send", command = requested, padx=18, pady=15, bg="#1338be",fg="white")
 sendButton.grid(row = 0, column = 2)
-saveButton = Button(fr2, text = "Save", command = requested, padx=18, pady=15, bg="#1338be",fg="white")
+saveButton = Button(fr2, text = "Save", command = download, padx=18, pady=15, bg="#1338be",fg="white")
 saveButton.grid(row=0,column=4 )
 # tabs widget
 # scrollbar = Scrollbar(tabControl)
@@ -126,7 +117,7 @@ tabControl.pack(fill = "both")
 # Label Creation
 lbl1 = Label(tab_1, text = "Click Send to get a response", height=1150, width=100, padx = 50, pady=50, bg = "#fff", fg = "black", font = "Helvetica 13", justify = "left")
 lbl1.pack()
-lbl2 = Label(tab_2, text = "Click Send to get a response", height=1150, width=1300, padx = 50, pady=50, bg = "#fff", fg = "black", font = "Helvetica 13")
+lbl2 = HTMLLabel(tab_2, html = "<h1>Click Send to get a response<h1/><br><h2>hello<h2/>", height=1150, width=1300, padx = 50, pady=50, bg = "#fff", fg = "black", font = "Helvetica 13")
 lbl2.pack()
 lbl3 = Label(tab_3, text = "Click Send to get a response", height=1150, width=1300, padx = 50, pady=50, bg = "#fff", fg = "black", font = "Helvetica 13")
 lbl3.pack()
