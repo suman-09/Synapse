@@ -27,7 +27,7 @@ buttonsframe = Frame(responseframe, padx = 30, pady = 30, bg = "white", highligh
 buttonsframe.pack(fill = "x")
 bframe = Frame(fr1, padx = 30, pady = 30, bg = "white",highlightbackground= "#1338be", highlightthickness=3)
 bframe.pack(anchor  ="center")
-statusframe = Frame(buttonsframe, bg="#fff", padx=30, pady=30, )
+statusframe = Frame(buttonsframe, bg="#fff", padx=1, pady=1 )
 statusframe.pack()
 
 #function 
@@ -52,6 +52,7 @@ def requested():
     lbl1.config(text = prettyHTML)
     lbl2.set_html(txt)
     lbl3.config(text = hed)
+    status.config(text=statcode)
     return url
 
 # Download and save function
@@ -113,8 +114,11 @@ tab_3 = Label(tabControl, text="",bg="#fff")
 tabControl.add(tab_1, text = 'Raw',)
 tabControl.add(tab_2, text = 'Preview')
 tabControl.add(tab_3, text = 'Headers')
-
 tabControl.pack(fill = "both")
+
+#status code creation
+status = Label(statusframe, text = "000", height = 1, width = 4)
+status.pack(side=RIGHT)
 
 # Label Creation
 lbl1 = Label(tab_1, text = "Click Send to get a response", height=1150, width=100, padx = 50, pady=50, bg = "#fff", fg = "black", font = "Helvetica 13", justify = "left")
