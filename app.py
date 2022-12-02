@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+import tkinter as tk
 from tkinter import messagebox
 from tkhtmlview import HTMLLabel
 from req import *
@@ -12,7 +13,7 @@ frame = Tk()
 frame.title("Synapse")
 
 #set window size (widthxheight)
-frame.geometry("1300x820")
+frame.geometry("1260x820")
 
 #set window colour
 frame.config(bg='#fff')
@@ -49,10 +50,12 @@ def requested():
     statcode, txt, hed = request(t , url, param, auth, head, json)
     soup = bs(txt, 'html.parser')
     prettyHTML = soup.prettify()
-    lbl1.config(text = prettyHTML)
+    lbl1.delete("1.0", "end")
+    lbl3.delete("1.0", "end")
+    lbl1.insert(tk.END , prettyHTML)
+    lbl3.insert(tk.END, hed)
     lbl2.set_html(txt)
-    lbl3.config(text = hed)
-    status.config(text=statcode)
+    status.config(text = statcode)
     return url
 
 # Download and save function
@@ -121,11 +124,11 @@ status = Label(statusframe, text = "000", height = 1, width = 4)
 status.pack(side=RIGHT)
 
 # Label Creation
-lbl1 = Label(tab_1, text = "Click Send to get a response", height=1150, width=100, padx = 50, pady=50, bg = "#fff", fg = "black", font = "Helvetica 13", justify = "left")
+lbl1 = Text(tab_1, height=1150, width=100, padx = 50, pady=50, bg = "#fff", fg = "black", font = "Helvetica 13")
 lbl1.pack()
 lbl2 = HTMLLabel(tab_2, html = "<h1>Click Send to get a response<h1/><br><h2>hello<h2/>", height=1150, width=1300, padx = 50, pady=50, bg = "#fff", fg = "black", font = "Helvetica 13")
 lbl2.pack()
-lbl3 = Label(tab_3, text = "Click Send to get a response", height=1150, width=1300, padx = 50, pady=50, bg = "#fff", fg = "black", font = "Helvetica 13")
+lbl3 = Text(tab_3, height=1150, width=1300, padx = 50, pady=50, bg = "#fff", fg = "black", font = "Helvetica 13")
 lbl3.pack()
 
 frame.mainloop()
