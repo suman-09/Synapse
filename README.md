@@ -8,8 +8,8 @@
  This project will enable us to perform the following functions on API:
 1. GET
 1. POST
-1. AUTH
 1. PUT
+1. PATCH
 ### **GET:**
  A GET request, in simple terms, is a way for you to grab data from a data source with the help of the internet.
 
@@ -23,11 +23,24 @@
 
 
  The difference between POST and PUT is that PUT requests are idempotent. That is, calling the same PUT request multiple times will always produce the same result. In contrast, calling a POST request repeatedly have side effects of creating the same resource multiple times.
+ <!-- ### **AUTH:** 
+ Auth is used to add your auth details to the relevant parts of the request when you select or enter them, so you can preview how your data will be sent before you run the request. Your auth data will appear in the relevant parts of the request, for example in the Headers tab. -->
+ ### **PATCH:**
+ This method is used to update the existing 
+ resource  on server and produces new version of existing resource. 
+ 
+ 
+ The differnce between POST and PATCH is that  POST  updates thhe complete information while PATCH updates some parts of information.   
+ ### **DELETE:**
+  DELETE request deletes a resource already present in the server. 
 ***
 ## In this project we are using mainly the following python libraries:-
  1. REQUESTS
  1. TKINTER
-
+1. TkHTMLView - html page view rendering
+1. Tkinter.SimpleDialogue - dialogue box
+1. BeautifulSoup from BS4 - html parsing
+1. PyWebCopy - response page saving
  ## **REQUESTS**
  ***
 
@@ -42,9 +55,109 @@ One of the main working of this application is to bring data or information from
 pip install requests
 ```
 <!-- ### Throughout this project we will be using various functions of **REQUESTS** library for fetching and sending data to server.  -->
+### GET:
+A simple GET request can be made by REQUESTS library 
+```
+r = requests.get('url', data={'key': 'value'})
+r.status_code
+//Displays status code 
+r.text
+r.json
+r.headers
+```
+here "r" is a Response object,all the information that a user request, will be provided through this object.
 
+### POST:
+```
+r = requests.post('url', data={'key': 'value'})
+```
+### PUT:
+```
+r = requests.put('url', data={'key': 'value'})
+```
+### PATCH:
+```
+r = requests.patch(url, params=param, auth=auth, headers=head, json=json)
+ ```
  Once our HTTP requests are working properly and we are able to fetch data from the API, we need a proper interface to send and receive a request. And for this purpose, we have the Tkinter library in python.
 ## **TKINTER**
 ***
 
  Tkinter is a python library including multiple modules which is used for making GUI for any python application.
+
+### Run the following command to import this library:
+```
+pip install tkinter
+```
+Here in this project we are making terminal based GUI.
+
+ Here is the method by  which you can make a frame widget using Tkinter
+ 
+ ```
+ root = Tk()
+frame = Frame(root)
+frame.pack()
+frame1 = Frame(root)
+frame1.pack( side = BOTTOM )
+
+root.mainloop()
+```
+Further next here is the way to create a Drop-down menu
+```
+#Create an instance of tkinter frame
+root= Tk()
+
+#Define the size of window or frame
+root.geometry("715x250")
+
+#Set the Menu initially
+menu= StringVar()
+menu.set("Select Any Language")
+
+#Create a dropdown Menu
+drop= OptionMenu(root, menu,"C++", "Java","Python","JavaScript","Rust","GoLang")
+drop.pack()
+
+root.mainloop()
+```
+If you want to create a text widget then here is the way
+```
+root = Tk()
+ 
+# specify size of window.
+root.geometry("250x170")
+ 
+# Create text widget and specify size.
+T = Text(root, height = 5, width = 52)
+```
+Tabbed Notebook  widget
+```
+root = tk.Tk()
+root.title("Tab Widget")
+title(name)
+tabControl = ttk.Notebook(root)
+Notebook(master=None, **options)
+
+root.mainloop()
+```
+Button widget
+```
+# import everything from tkinter module
+from tkinter import *   
+ 
+# create a tkinter window
+root = Tk()             
+ 
+# Open window having dimension 100x100
+root.geometry('100x100')
+ 
+# Create a Button
+btn = Button(root, text = 'Click me !', bd = '5')
+ 
+# Set the position of button on the top of window.  
+btn.pack(side = 'top')   
+ 
+root.mainloop()
+```
+
+
