@@ -18,17 +18,17 @@ frame.geometry("1260x820")
 #set window colour
 frame.config(bg='#fff')
 
-fr1 = Frame(frame, borderwidth = 0, bg = "white", relief = SUNKEN, pady = 20, highlightbackground= "#1338be", highlightthickness=3)
+fr1 = Frame(frame, borderwidth = 0, bg = "linen", relief = SUNKEN, pady = 40)
 fr1.pack(fill = "x")
-fr2 = Frame(fr1, borderwidth = 0, bg = "#fff", pady = 20,width=1000)
+fr2 = Frame(fr1, borderwidth = 0, bg = "linen", width=1000, pady = 30)
 fr2.pack(anchor = "center")
-responseframe = Frame(frame, bg = "white",highlightbackground= "#1338be", highlightthickness=3)
+responseframe = Frame(frame, bg = "white")
 responseframe.pack()
-buttonsframe = Frame(responseframe, padx = 30, pady = 30, bg = "white", highlightbackground= "#1338be", highlightthickness=3)
-buttonsframe.pack(fill = "x")
-bframe = Frame(fr1, padx = 30, pady = 30, bg = "white",highlightbackground= "#1338be", highlightthickness=3)
+sframe = Frame(responseframe, padx = 3, pady = 3, bg = "white", highlightbackground= "black", highlightthickness=3)
+sframe.pack(pady = 30)
+bframe = Frame(fr1, padx = 30, pady = 30, bg = "white")
 bframe.pack(anchor  ="center")
-statusframe = Frame(buttonsframe, bg="#fff", padx=1, pady=1 )
+statusframe = Frame(sframe, bg="white")
 statusframe.pack()
 
 #function 
@@ -55,7 +55,7 @@ def requested():
     lbl1.insert(tk.END , prettyHTML)
     lbl3.insert(tk.END, hed)
     lbl2.set_html(txt)
-    status.config(text = statcode)
+    status.config(text = "Status Code : " + str(statcode))
     return url
 
 # Download and save function
@@ -81,7 +81,7 @@ clicked.set( "GET" )
 # Create Dropdown menu
 drop = OptionMenu( fr2 , clicked , *options, command=got)
 drop.grid(row = 0, column = 0)
-drop.config( bg="#1338be", fg="#fff")
+drop.config( bg="#1338be", fg="#fff", padx = 20, pady = 10)
 
 # url box
 inputtxt = Text(fr2, height = 1, width = 76, pady = 20, padx = 20 ) 
@@ -98,7 +98,7 @@ tabControl.add(tab1, text = 'Params')
 tabControl.add(tab2, text = 'Authorization')
 tabControl.add(tab3, text = 'Headers')
 tabControl.add(tab4, text = 'JSON')
-tabControl.pack(fill = "both", padx = 400)
+tabControl.pack(fill = "both", padx = 400, pady = 45)
 
 
 # Button Creation
@@ -107,7 +107,7 @@ sendButton.grid(row = 0, column = 2)
 saveButton = Button(fr2, text = "Save", command = download, padx=18, pady=15, bg="#1338be",fg="white")
 saveButton.grid(row=0,column=4 )
 tabControl= ttk.Notebook(statusframe)
-statusframe.grid(row=3, column=4)
+statusframe.grid(row=4, column=4)
 
 # tabs widget
 tabControl = ttk.Notebook (responseframe, height = 700, width = 1500)
@@ -120,14 +120,14 @@ tabControl.add(tab_3, text = 'Headers')
 tabControl.pack(fill = "both")
 
 #status code creation
-status = Label(statusframe, text = "000", height = 1, width = 4)
-status.pack(side=RIGHT)
+status = Label(statusframe, text = "Status Code: 000", height = 1, width = 16)
+status.pack()
 
 # Label Creation
 lbl1 = Text(tab_1, height=1150, width=100, padx = 50, pady=50, bg = "#fff", fg = "black", font = "Helvetica 13")
 lbl1.pack()
-lbl2 = HTMLLabel(tab_2, html = "<h1>Click Send to get a response<h1/><br><h2>hello<h2/>", height=1150, width=1300, padx = 50, pady=50, bg = "#fff", fg = "black", font = "Helvetica 13")
-lbl2.pack()
+lbl2 = HTMLLabel(tab_2, html = "<h3>Click Send to get a response<h3/>", height=1150, width=1300, padx = 50, pady=50, bg = "#fff", fg = "black", font = "Helvetica 13")
+lbl2.pack(anchor = "center")
 lbl3 = Text(tab_3, height=1150, width=1300, padx = 50, pady=50, bg = "#fff", fg = "black", font = "Helvetica 13")
 lbl3.pack()
 
