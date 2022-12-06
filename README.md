@@ -1,7 +1,10 @@
-# **API**
- API is acronym  for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other.
+**[Introduction](file.md)**
 
- In this project we are making an application using python that will help in fetching and testing APIs using various libraries of python.
+- **[API](API.md)**
+- **[Tkinter](Tkinter.md)**
+- **[The ```Requested``` Function](Req.md)**
+- **[tkhtmlview](htmlview.md)**
+- **[The ```save``` Function](save.md)**
 ***
  **Approach for building an API Tester**
 
@@ -37,72 +40,14 @@
 ## In this project we are using mainly the following python libraries:-
  1. REQUESTS
  1. TKINTER
-1. TkHTMLView - html page view rendering
-1. Tkinter.SimpleDialogue - dialogue box
-1. BeautifulSoup from BS4 - html parsing
-1. PyWebCopy - response page saving
- ## **REQUESTS**
- ***
-
-One of the main working of this application is to bring data or information from any API and display it to the user. The task of sending HTTP requests using Python is performed using the “Requests” Module. 
-
- The HTTP request returns a Response Object with all the response data (content, encoding, status, etc).
-
- The first step in using this module is to import it in the python file.
-
- ### Run the following command to import this library:
-```
-pip install requests
-```
-<!-- ### Throughout this project we will be using various functions of **REQUESTS** library for fetching and sending data to server.  -->
-### GET:
-A simple GET request can be made by REQUESTS library 
-```
-r = requests.get('url', data={'key': 'value'})
-r.status_code
-//Displays status code 
-r.text
-r.json
-r.headers
-```
-here "r" is a Response object,all the information that a user request, will be provided through this object.
-
-### POST:
-```
-r = requests.post('url', data={'key': 'value'})
-```
-### PUT:
-```
-r = requests.put('url', data={'key': 'value'})
-```
-### PATCH:
-```
-r = requests.patch(url, params=param, auth=auth, headers=head, json=json)
- ```
- Once our HTTP requests are working properly and we are able to fetch data from the API, we need a proper interface to send and receive a request. And for this purpose, we have the Tkinter library in python.
-## **TKINTER**
-***
-
- Tkinter is a python library including multiple modules which is used for making GUI for any python application.
-
-### Run the following command to import this library:
-```
-pip install tkinter
-```
-Here in this project we are making terminal based GUI.
-
- Here is the method by  which you can make a frame widget using Tkinter
+1. TkHTMLView 
+1. Tkinter.SimpleDialog 
+1. BeautifulSoup from BS4 
+1. PyWebCopy 
  
- ```
- root = Tk()
-frame = Frame(root)
-frame.pack()
-frame1 = Frame(root)
-frame1.pack( side = BOTTOM )
+ Once our HTTP requests are working properly and we are able to fetch data from the API, we need a proper interface to send and receive a request. And for this purpose, we have the Tkinter library in python.
 
-root.mainloop()
-```
-Further next here is the way to create a Drop-down menu
+<!-- Further next here is the way to create a Drop-down menu
 ```
 #Create an instance of tkinter frame
 root= Tk()
@@ -158,6 +103,6 @@ btn = Button(root, text = 'Click me !', bd = '5')
 btn.pack(side = 'top')   
  
 root.mainloop()
-```
-
+``` -->
+<!-- [app](app.py) -->
 
