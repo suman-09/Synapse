@@ -45,7 +45,7 @@
 1. BeautifulSoup from BS4 
 1. PyWebCopy 
  
- Once our HTTP requests are working properly and we are able to fetch data from the API, we need a proper interface to send and receive a request. And for this purpose, we have the Tkinter library in python.
+<!--  Once our HTTP requests are working properly and we are able to fetch data from the API, we need a proper interface to send and receive a request. And for this purpose, we have the Tkinter library in python. -->
 
 <!-- Further next here is the way to create a Drop-down menu
 ```
