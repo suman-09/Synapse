@@ -51,27 +51,27 @@ r = requests.patch(url, params=param, auth=auth, headers=head, json=json)
  ``` -->
 
 ## The  ```Requested```   Function
+
+Here the requested function is defined for taking input parameters from user and sending request to server and updating response in GUI.
+Inside this function we have defined some variables for taking input like param, auth, head, json ,which are label for parameter input fields.
+For various requests like "get", "post" and "patch", we have defined a new variable "t"
+After that we have defined a function "got" in which the selected value from drop down will be returned.
+As any method is clicked the "got" function is triggered and it commands the variable to save which drop down is selected.
+Then all the imput params and selected method is passed in the request funcion.
+On the other side request function is returning three new variables "statcode, text, hed" for status code, text and header respectively.
+We save those responses in variables and then we configure the output. 
+
 ```
-import requests
-from bs4 import BeautifulSoup as bs
+def got():
+    selected_dropdown = clicked.get()
+    return(selected_dropdown)
 
 def requested():
-    url = "url"
-    param = "param"
-    auth = "auth"
-    head = "head"
-    json = "json"
+    url = inputtext.get(1.0, "end-1c")
     t = got()
     statcode, txt, hed = request(t , url, param, auth, head, json)
-    soup = bs(txt, 'html.parser')
-    prettyHTML = soup.prettify()
-    lbl1.delete("1.0", "end")
-    lbl3.delete("1.0", "end")
-    lbl1.insert(tk.END , prettyHTML)
-    lbl3.insert(tk.END, hed)
-    lbl2.set_html(txt)
-    status.config(text = statcode)
-    return url
+    response.insert(tk.END , txt) #to update text response in the GUI
+    statuscode.config(text = statcode) # to update status code in GUI
 ```
  - [Requests Documentation](https://pypi.org/project/requests/)
 - [beautofulsoup4 Documentation](https://pypi.org/project/beautifulsoup4/)
