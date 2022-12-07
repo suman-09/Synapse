@@ -24,6 +24,38 @@ Python can be downloaded from the official python website. link below
 Python can be downloaded for MacOS using the same website.
 __link__ : https://www.python.org/downloads/macos/
 
+## **Virtual Environment**
+
+For doing any project, it is always advised to use virtual environment and have all the libraries installed there.
+To setup virtual environment, all you have to do in go through the following commands.
+
+### **Linux/Mac setup**
+
+First lets install pip, which will help us in installing other libraries.
+
+```
+python3 -m pip install --user --upgrade pip
+
+python3 -m pip --version
+```
+### Instaling Virtual Environment
+Now we will install and start the Virtual Environment for Python. And do to so we need folloing commands
+
+```
+python3 -m pip install --user virtualenv
+```
+### Creating Virtualenv
+Once it is installed, its time we create an environment to work in. Use the command below to create a virtualenv
+```
+python3 -m venv env
+```
+### Activating a Virtualenv
+
+Before you can start installing or using packages in your virtual environment you’ll need to activate it. Activating a virtual environment will put the virtual environment-specific python and pip executables into your shell’s PATH.
+
+```
+source env/bin/activate
+```
 
 # **API**
  API is acronym  for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other.
