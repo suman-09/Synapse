@@ -1,4 +1,36 @@
+<<<<<< main
+# **PYTHON Setup**
+Python is one of the most easy to write and understand programming language. 
+
+The first step to our project is to setup Python in our system, may it be linux, windows or macOS
+
+### **LINUX**
+Most linux distros have python preinstalled in them. to find out about the version you have in your system, use the following command in terminal
+
+```
+pyhton3 --version
+```
+if you don't have python preinstalled, you can install it using following command
+
+```
+sudo apt-get install python3.6
+```
+### **WINDOWS**
+For windows, all you have to do is download python, and you are good to go and explore this language using any IDLE
+
+Python can be downloaded from the official python website. link below
+ __link__: https://www.python.org/downloads/windows/
+
+### **MacOS**
+Python can be downloaded for MacOS using the same website.
+__link__ : https://www.python.org/downloads/macos/
+
+
+# **API**
+ API is acronym  for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other.
+=======
 **[Introduction](file.md)**
+>>>>>> main
 
 - **[API](API.md)**
 - **[Tkinter](Tkinter.md)**
