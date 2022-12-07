@@ -1,4 +1,3 @@
-<<<<<< main
 # **PYTHON Setup**
 Python is one of the most easy to write and understand programming language. 
 
@@ -30,7 +29,6 @@ __link__ : https://www.python.org/downloads/macos/
  API is acronym  for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other.
 =======
 **[Introduction](file.md)**
->>>>>> main
 
 - **[API](API.md)**
 - **[Tkinter](Tkinter.md)**
