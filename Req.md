@@ -53,22 +53,24 @@ r = requests.patch(url, params=param, auth=auth, headers=head, json=json)
 ## The  ```Requested```   Function
 
 Here the requested function is defined for taking input parameters from user and sending request to server and updating response in GUI.
-Inside this function we have defined some variables for taking input like param, auth, head, json ,which are label for parameter input fields.
-For various requests like "get", "post" and "patch", we have defined a new variable "t"
-After that we have defined a function "got" in which the selected value from drop down will be returned.
-As any method is clicked the "got" function is triggered and it commands the variable to save which drop down is selected.
-Then all the imput params and selected method is passed in the request funcion.
-On the other side request function is returning three new variables "statcode, text, hed" for status code, text and header respectively.
-We save those responses in variables and then we configure the output. 
+The flow of the function is as follows:
+ 1. Setting the variable for taking input from user. Like we make variable url for takin url from the user.
+ 2. Now setting up the variable for the selected type of request.
+     a. Now to get that we define a function got(), where we returned the selected text
+     b. And stored the selected test in a variable here in case it is "t"
+ 3. After that we passed all the necessary inputs to the request function which returns us the Status code, Text and Header response.
+ 4. we stored all those response in variables here in case statcode for status code, txt is for text and hed for header
+ 5. Then we just updated the response in the GUI
 
 ```
 def got():
-    selected_dropdown = clicked.get()
+    selected_dropdown = clicked.get() #to get what the user selected in drop down.
     return(selected_dropdown)
 
 def requested():
-    url = inputtext.get(1.0, "end-1c")
-    t = got()
+    #taking input from user
+    url = inputtext.get(1.0, "end-1c") # will be same for param ,auth ,json
+    t = got() #the function which stored the selected request type
     statcode, txt, hed = request(t , url, param, auth, head, json)
     response.insert(tk.END , txt) #to update text response in the GUI
     statuscode.config(text = statcode) # to update status code in GUI
