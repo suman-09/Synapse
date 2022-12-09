@@ -1,11 +1,21 @@
-# **PYTHON Setup**
-Python is one of the most easy to write and understand programming language. 
+<!-- The links have to be edited -->
+[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 
-The first step to our project is to setup Python in our system, may it be linux, windows or macOS
 
-### **LINUX**
-Most linux distros have python preinstalled in them. to find out about the version you have in your system, use the following command in terminal
+# Quick Links
 
+
+- [How to run the project](https://github.com/mayankt18/glugle#search-engine-made-using-python-and-flask)
+    
+    ### Documentation
+    - [Introduction](https://github.com/mayankt18/glugle/blob/master/resources/1.I.search%20engine.md#search-engine-basics)
+    - Setup ([Linux](https://github.com/mayankt18/glugle/blob/master/resources/1.II.setup.md#python-installation-guide) / [Windows](https://github.com/mayankt18/glugle/blob/master/resources/1.II.setup_win.md#project-setup-in-windows))
+    - [Tkinter](https://github.com/suman-09/Tdoc_py/blob/main/Tkinter.md)
+    - [Requests](https://github.com/mayankt18/glugle/blob/master/resources/2.II.crawler.md#web-crawler)
+    - [Integration](https://github.com/mayankt18/glugle/blob/master/resources/3.flask.md#flask-guide)
+    - [Response](https://github.com/mayankt18/glugle/blob/master/resources/4.web%20app.md#the-web-app)
+
+=======
 ```
 pyhton3 --version
 ```
@@ -38,18 +48,40 @@ __link__ : https://www.python.org/downloads/macos/
 ***
  **Approach for building an API Tester**
 
- This project will enable us to perform the following functions on API:
-1. GET
-1. POST
-1. PUT
-1. PATCH
-### **GET:**
- A GET request, in simple terms, is a way for you to grab data from a data source with the help of the internet.
 
-### **POST:**
+# Search engine made using Python and flask
 
- POST is used to send data to a server to create/update a resource.
+## Project Setup
 
+1. Clone the git in a folder
+2. Make a virtual environment in the folder
+
+
+**For Windows**
+```
+pip install virtualenv
+cd project_folder
+virtualenv env
+.\env\Scripts\activate
+```
+
+**For Linux**
+```
+pip install virtualenv #for version 2 and below 
+pip3 install virtualenv #for version 3
+cd project file
+virtualenv env
+source ./env/bin/activate
+```
+
+3. Install requirements
+```
+pip3 install -r requirements.txt
+```
+
+
+4. Start the application
+=======
 ### **PUT:**
 
  PUT is used to send data to a server to create/update a resource.
@@ -78,23 +110,13 @@ __link__ : https://www.python.org/downloads/macos/
 <!--  Once our HTTP requests are working properly and we are able to fetch data from the API, we need a proper interface to send and receive a request. And for this purpose, we have the Tkinter library in python. -->
 
 <!-- Further next here is the way to create a Drop-down menu
+
 ```
-#Create an instance of tkinter frame
-root= Tk()
-
-#Define the size of window or frame
-root.geometry("715x250")
-
-#Set the Menu initially
-menu= StringVar()
-menu.set("Select Any Language")
-
-#Create a dropdown Menu
-drop= OptionMenu(root, menu,"C++", "Java","Python","JavaScript","Rust","GoLang")
-drop.pack()
-
-root.mainloop()
+python app.py #for version 2 and below
+python3 app.py #for version 3
 ```
+
+=======
 If you want to create a text widget then here is the way
 ```
 root = Tk()
@@ -135,4 +157,5 @@ btn.pack(side = 'top')
 root.mainloop()
 ``` -->
 <!-- [app](app.py) -->
+
 
