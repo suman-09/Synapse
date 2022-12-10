@@ -5,7 +5,7 @@
 
 # Quick Links
 
-- [How to run the project](https://github.com/suman-09/Tdoc_py#API-tester-made-using-Python-(Tkinter-and-Requests))
+- [How to run the project](https://github.com/suman-09/Tdoc_py#api-tester-made-using-python-tkinter-and-requests)
     
     ### Documentation
     - [Introduction](https://github.com/suman-09/Tdoc_py/blob/main/Resources/1.Introduction.md)
