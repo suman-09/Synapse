@@ -8,14 +8,13 @@
 - [How to run the project](https://github.com/mayankt18/glugle#search-engine-made-using-python-and-flask)
     
     ### Documentation
-    - [Introduction](https://github.com/mayankt18/glugle/blob/master/resources/1.I.search%20engine.md#search-engine-basics)
-    - Setup ([Linux](https://github.com/mayankt18/glugle/blob/master/resources/1.II.setup.md#python-installation-guide) / [Windows](https://github.com/mayankt18/glugle/blob/master/resources/1.II.setup_win.md#project-setup-in-windows))
-    - [Tkinter](https://github.com/suman-09/Tdoc_py/blob/main/Tkinter.md)
-    - [Requests](https://github.com/mayankt18/glugle/blob/master/resources/2.II.crawler.md#web-crawler)
-    - [Integration](https://github.com/mayankt18/glugle/blob/master/resources/3.flask.md#flask-guide)
-    - [Response](https://github.com/mayankt18/glugle/blob/master/resources/4.web%20app.md#the-web-app)
+    - [Introduction](https://github.com/suman-09/Tdoc_py/blob/main/Resources/1.Introduction.md)
+    - Setup ([Linux](https://github.com/suman-09/Tdoc_py/blob/main/Resources/2.Setup.md) / [Windows]())
+    - [Tkinter](https://github.com/suman-09/Tdoc_py/blob/main/3.Tkinter.md)
+    - [Requests](https://github.com/suman-09/Tdoc_py/blob/main/Resources/4.Requests.md)
+    - [Integration](https://github.com/suman-09/Tdoc_py/blob/main/Resources/5.Integration.md)
+    - [Response](https://github.com/suman-09/Tdoc_py/blob/main/Resources/6.Response.md)
 
-=======
 ```
 pyhton3 --version
 ```
@@ -82,30 +81,6 @@ pip3 install -r requirements.txt
 
 4. Start the application
 =======
-### **PUT:**
-
- PUT is used to send data to a server to create/update a resource.
-
-
- The difference between POST and PUT is that PUT requests are idempotent. That is, calling the same PUT request multiple times will always produce the same result. In contrast, calling a POST request repeatedly have side effects of creating the same resource multiple times.
- <!-- ### **AUTH:** 
- Auth is used to add your auth details to the relevant parts of the request when you select or enter them, so you can preview how your data will be sent before you run the request. Your auth data will appear in the relevant parts of the request, for example in the Headers tab. -->
- ### **PATCH:**
- This method is used to update the existing 
- resource  on server and produces new version of existing resource. 
- 
- 
- The differnce between POST and PATCH is that  POST  updates thhe complete information while PATCH updates some parts of information.   
- ### **DELETE:**
-  DELETE request deletes a resource already present in the server. 
-***
-## In this project we are using mainly the following python libraries:-
- 1. REQUESTS
- 1. TKINTER
-1. TkHTMLView 
-1. Tkinter.SimpleDialog 
-1. BeautifulSoup from BS4 
-1. PyWebCopy 
  
 <!--  Once our HTTP requests are working properly and we are able to fetch data from the API, we need a proper interface to send and receive a request. And for this purpose, we have the Tkinter library in python. -->
 
