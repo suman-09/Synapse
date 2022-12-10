@@ -10,7 +10,7 @@
     ### Documentation
     - [Introduction](https://github.com/suman-09/Tdoc_py/blob/main/Resources/1.Introduction.md)
     - [Setup](https://github.com/suman-09/Tdoc_py/blob/main/Resources/2.Setup.md)
-    - [Tkinter](https://github.com/suman-09/Tdoc_py/blob/main/Tkinter.md)
+    - [Tkinter](https://github.com/suman-09/Tdoc_py/blob/main/Resources/3.Tkinter.md)
     - [Requests](https://github.com/suman-09/Tdoc_py/blob/main/Resources/4.Requests.md)
     - [Integration](https://github.com/suman-09/Tdoc_py/blob/main/Resources/5.Integration.md)
     - [Response](https://github.com/suman-09/Tdoc_py/blob/main/Resources/6.Response.md)
