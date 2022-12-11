@@ -1,10 +1,10 @@
+# import libraries
 from tkinter import *
 from tkinter import ttk
 import tkinter as tk
 from tkinter import messagebox
 from tkhtmlview import HTMLLabel
 from req import *
-import os
 from tkinter.simpledialog import askstring
 from bs4 import BeautifulSoup as bs
 from pywebcopy import save_website
@@ -36,18 +36,18 @@ statusframe.pack()
 #to get which requested setted at request
 def got():
     slktd = clicked.get()
-    law = slktd.lower()
+    law = slktd.lower() 
     return(law)   
 
 # http request function
 def requested():
     url = inputtxt.get(1.0, "end-1c")
     param = tab1.get(1.0, "end-1c")
-    auth = tab2.get(1.0, "end-1c")
+    auth_token = tab2.get(1.0, "end-1c")
     head = tab3.get(1.0, "end-1c")
-    json = tab4.get(1.0, "end-1c")  
-    t = got()
-    statcode, txt, hed = request(t , url, param, auth, head, json)
+    json = tab4.get(1.0, "end-1c") 
+    t = got() 
+    statcode, txt, hed = request(t , url, param, auth_token, head, json)
     soup = bs(txt, 'html.parser')
     prettyHTML = soup.prettify()
     lbl1.delete("1.0", "end")
@@ -98,7 +98,7 @@ tabControl.add(tab1, text = 'Params')
 tabControl.add(tab2, text = 'Authorization')
 tabControl.add(tab3, text = 'Headers')
 tabControl.add(tab4, text = 'JSON')
-tabControl.pack(fill = "both", padx = 400, pady = 45)
+tabControl.pack(fill = "both", padx = 400, pady = 1)
 
 
 # Button Creation
