@@ -13,7 +13,3 @@ class MyAuth(requests.auth.AuthBase):
 if __name__=="__main__":
     
     resp = requests.get('https://httpbin.org/bearer', auth=MyAuth("sometoken"))
-
-    print(resp.status_code)
-    print(resp.text)
-    print(resp.headers)
